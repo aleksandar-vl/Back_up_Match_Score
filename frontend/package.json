@@ -15,7 +15,7 @@
     "start": "serve -s dist -l $PORT"
   },
   "engines": {
-    "node": "14.x"
+    "node": "22.x"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
