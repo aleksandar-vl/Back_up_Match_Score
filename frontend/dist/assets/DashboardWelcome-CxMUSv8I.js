@@ -1,0 +1,1 @@
+import{d as s,f as c,c as t,e,t as a,_ as r}from"./index-DD0chK9m.js";const _={class:"welcome-card"},n={class:"welcome-content"},l={class:"welcome-text"},d=s({__name:"DashboardWelcome",props:{userRole:{}},setup(m){return(o,p)=>(c(),t("div",_,[e("div",n,[e("h2",l,"Welcome, "+a(o.userRole),1)])]))}}),h=r(d,[["__scopeId","data-v-cc059906"]]);export{h as D};

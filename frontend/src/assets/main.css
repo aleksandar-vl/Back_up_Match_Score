@@ -1,0 +1,61 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+.border-blue {
+  border: 2px solid #42DDF2FF;
+  box-shadow: 0 0 15px rgba(8, 87, 144, 0.3);
+
+}
+
+.box-shadow-card {
+  box-shadow: 0 0 20px rgba(8, 117, 176, 0.4);
+}
+
+.card-background {
+  background: rgba(45, 55, 75, 0.8);
+}
+
+.yellow-text {
+  color: #FED854FF;
+  text-shadow: 0 0 10px rgba(238, 173, 60, 0.5);
+}
+
+
+
+  @media (hover: hover) {
+    a:hover {
+      background-color: hsla(160, 100%, 37%, 0.2);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      display: flex;
+      place-items: center;
+    }
+
+    #app {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0 2rem;
+    }
+  }
+
+  .home-wrapper {
+    position: relative;
+    overflow-y: auto;
+  }
