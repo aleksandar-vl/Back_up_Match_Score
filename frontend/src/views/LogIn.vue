@@ -82,13 +82,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { FormInstance } from '@vue/runtime-core'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const authStore = useAuthStore()
 
-const form = ref(null)
+const form = ref<FormInstance | null>(null)
 const email = ref('')
 const password = ref('')
 const error = ref('')
@@ -104,7 +105,9 @@ const rules = {
 const handleLogin = async () => {
   if (!form.value) return
 
-  const { valid } = await form.value.validate()
+  if (form.value) {
+    const { valid } = await form.value.validate()
+  }
 
   if (!valid) return
 

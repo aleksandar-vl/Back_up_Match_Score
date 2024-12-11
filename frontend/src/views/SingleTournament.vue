@@ -120,7 +120,7 @@ const pastMatchesError = ref<string | null>(null)
 
 const tournamentPrizePool = computed(() => {
   if (!tournament.value?.prizes?.length) return 0;
-  return tournament.value.prizes.reduce((sum, prize) => sum + prize.prize_cut, 0);
+  return tournament.value.prizes.reduce((sum: number, prize: { prize_cut: number }) => sum + prize.prize_cut, 0);
 });
 
 const canEdit = computed(() => {
@@ -173,7 +173,7 @@ const fetchAllTournamentMatches = async () => {
     console.log('Received matches data:', data);
     allTournamentMatches.value = data;
 
-  } catch (e) {
+  } catch (e: any) {
     console.error('Detailed error in fetchAllTournamentMatches:', e);
     console.error('Error stack:', e.stack);
     matchesError.value = 'Failed to load tournament matches';

@@ -7,6 +7,7 @@ export interface Tournament {
   current_stage: string
   number_of_teams: number
   director_id: string
+  prizes: Prize[]
 }
 
 export interface Request {
@@ -45,6 +46,7 @@ export interface PrizeCut {
 export interface Team {
   id: string
   name: string
+  logo: string | null
 }
 
 export interface TeamStats {

@@ -128,7 +128,7 @@ const fetchTeams = async () => {
     teams.value = data.map(team => ({
       name: team.name,
     }))
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error fetching teams:', e)
     teamsError.value = e.message || 'Failed to load teams'
   } finally {
@@ -160,7 +160,7 @@ const fetchRequests = async () => {
 
     requests.value = [...data];
 
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error fetching requests:', e);
     requestHistoryError.value = e.message || 'Failed to load request history. Please try again later.';
   } finally {
@@ -179,7 +179,7 @@ const fetchPlayer = async () => {
     })
     if (!response.ok) throw new Error('Failed to fetch player details')
     player.value = await response.json()
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error fetching player:', e)
     error.value = 'Failed to load player details'
   } finally {
@@ -228,7 +228,7 @@ const extractErrorMessage = async (response: Response) => {
     }
 
     return 'An error occurred'
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error extracting message:', e)
     return 'An error occurred'
   }

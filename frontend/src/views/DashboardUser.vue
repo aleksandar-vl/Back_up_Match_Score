@@ -45,7 +45,7 @@ const userEmail = ref(authStore.userEmail)
 
 const requests = ref<Request[]>([])
 const isLoading = ref(true)
-const requestHistoryError = ref<string | null>(null)
+const requestHistoryError = ref<string>('');
 const showPlayerLinkDialog = ref(false)
 const showSuccessAlert = ref(false)
 const successMessage = ref('')
@@ -93,7 +93,7 @@ const fetchRequests = async () => {
 
     requests.value = [...data];
 
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error fetching requests:', e);
     requestHistoryError.value = e.message || 'Failed to load request history. Please try again later.';
   } finally {

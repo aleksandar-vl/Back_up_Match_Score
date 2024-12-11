@@ -87,7 +87,7 @@ const handleDirectorRequest = async () => {
 
     emit('show-success', 'Director role request submitted successfully. An admin will review your request shortly.')
     emit('update-requests')
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error submitting director request:', e)
     actionsError.value = 'Failed to submit request. Please try again.'
   } finally {

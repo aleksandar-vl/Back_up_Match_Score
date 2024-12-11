@@ -132,7 +132,7 @@ const updateName = async () => {
 
     emit('refresh')
     showNameEdit.value = false
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error updating team name:', e)
     nameError.value = (e as Error).message || 'Failed to update team name'
   }
@@ -163,7 +163,7 @@ const updateLogo = async () => {
 
     emit('refresh')
     showLogoEdit.value = false
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error updating team logo:', e)
     logoError.value = (e as Error).message || 'Failed to update team logo'
   }
@@ -190,7 +190,7 @@ const addPlayer = async () => {
 
     emit('refresh')
     showAddPlayer.value = false
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error adding player:', e)
     addPlayerError.value = (e as Error).message || 'Failed to add player'
   }

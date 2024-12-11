@@ -275,7 +275,7 @@ onMounted(() => {
   fetchTeams()
   window.addEventListener('search-results', ((event: CustomEvent) => {
     if (event.detail.route === '/matches') {
-      const searchResults = event.detail.results.filter(result => {
+      const searchResults = event.detail.results.filter((result: any) => {
         let matches = true;
 
         if (currentFilters.value.stage) {
@@ -305,7 +305,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('search-results', ((event: CustomEvent) => {
     if (event.detail.route === '/matches') {
-      const searchResults = event.detail.results.filter(result => {
+      const searchResults = event.detail.results.filter((result: any) => {
         let matches = true;
         if (currentFilters.value.stage) {
           matches = matches && result.stage === currentFilters.value.stage;

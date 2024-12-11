@@ -213,7 +213,7 @@ const fetchRequests = async () => {
       emit('update:requests', data);
     }
 
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error fetching requests:', e);
     requestHistoryError.value = 'Failed to load request history. Please try again later.';
   } finally {
@@ -266,7 +266,7 @@ const approveRequest = async (requestId: string) => {
     // Обновяваме списъка на заявките чрез родителския компонент
     await fetchRequests();
 
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error approving request:', e);
     actionsError.value = 'Failed to approve request. Please try again.';
   } finally {
@@ -298,7 +298,7 @@ const rejectRequest = async (requestId: string) => {
 
     await fetchRequests();
 
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error rejecting request:', e);
     actionsError.value = e.message || 'Failed to reject request. Please try again.';
   } finally {
@@ -319,7 +319,7 @@ const handlePlayerClick = async (username: string) => {
       selectedPlayer.value = players[0]
       showPlayerModal.value = true
     }
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error fetching player:', e)
   } finally {
     isLoadingPlayer.value = false

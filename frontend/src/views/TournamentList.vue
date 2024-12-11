@@ -187,7 +187,7 @@ onMounted(() => {
   fetchTournaments()
   window.addEventListener('search-results', ((event: CustomEvent) => {
     if (event.detail.route === '/events') {
-      const searchResults = event.detail.results.filter(result => {
+      const searchResults = event.detail.results.filter((result: Tournament) => {
         if (currentFilters.value.format) {
           return result.tournament_format === currentFilters.value.format;
         }

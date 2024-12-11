@@ -101,7 +101,7 @@ const fetchRequests = async () => {
     const data = await response.json()
     requests.value = [...data]
 
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('Error fetching requests:', e)
     error.value = e.message || 'Failed to load request history. Please try again later.'
   } finally {

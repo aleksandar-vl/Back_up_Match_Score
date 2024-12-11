@@ -84,6 +84,7 @@
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
+import type { FormInstance } from '@vue/runtime-core'
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -104,7 +105,9 @@ const rules = {
 const handleRegister = async () => {
   if (!form.value) return
 
-  const { valid } = await form.value.validate()
+  if (form.value) {
+    const { valid } = await form.value.validate()
+  }
 
   if (!valid) return
 
