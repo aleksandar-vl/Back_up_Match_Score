@@ -237,7 +237,7 @@ const openUpdatePlayerDialog = async () => {
 
   playerUsername.value = ''
   playerError.value = ''
-  selectedPlayer.value = null
+  selectedPlayer.value = Player | null
   playerFirstName.value = ''
   playerLastName.value = ''
   playerCountry.value = ''

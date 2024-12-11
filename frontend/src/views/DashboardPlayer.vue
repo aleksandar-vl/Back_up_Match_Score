@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <v-container>
       <!-- Director Welcome Section -->
-      <DashboardWelcome :userRole="player?.username" />
+      <DashboardWelcome :userRole="player?.username || ''" />
 
       <v-row class="dashboard-row">
         <!-- Player Profile Column -->
@@ -125,11 +125,12 @@ const fetchTeams = async () => {
     }
 
     const data = await response.json()
-    teams.value = data.map(team => ({
+    teams.value = data.map((team: Team) => ({
       name: team.name,
     }))
   } catch (e: unknown) {
-    console.error('Error fetching teams:', e)
+    const error = e as Error
+    console.error('Error fetching teams:', error)
     teamsError.value = e.message || 'Failed to load teams'
   } finally {
     isLoadingTeams.value = false
@@ -161,7 +162,8 @@ const fetchRequests = async () => {
     requests.value = [...data];
 
   } catch (e: unknown) {
-    console.error('Error fetching requests:', e);
+    const error = e as Error
+    console.error('Error fetching requests:', error);
     requestHistoryError.value = e.message || 'Failed to load request history. Please try again later.';
   } finally {
     isLoading.value = false;

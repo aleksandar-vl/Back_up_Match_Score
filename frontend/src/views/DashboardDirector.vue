@@ -112,7 +112,7 @@ const showSuccessAlert = ref(false)
 const successMessage = ref('')
 const selectedPeriod = ref('all')
 const selectedStatus = ref('all')
-const tournamentError = ref('')
+const tournamentError = ref<string | null>(null);
 const currentLimit = ref(10);
 const usernameError = ref('')
 const firstNameError = ref('')
@@ -156,6 +156,14 @@ const currentFilters = ref<FilterValuesTournament>({
   status: null,
   format: null
 });
+
+const initializeTeam = () => {
+  if (selectedPlayer.value && selectedPlayer.value.team_id) {
+    selectedTeam.value = selectedPlayer.value.team_id;
+  } else {
+    selectedTeam.value = '';
+  }
+}
 
 const handleTeamAdded = () => {
   showSuccessAlert.value = true

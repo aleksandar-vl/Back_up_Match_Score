@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <v-container>
       <!-- User Welcome Section -->
-      <DashboardWelcome :userRole="userEmail" />
+      <DashboardWelcome :userRole="userEmail || ''" />
 
 
       <!-- Request Buttons Section -->
@@ -72,7 +72,7 @@ const hasPendingRequest = computed(() => {
 const fetchRequests = async () => {
   try {
     isLoading.value = true;
-    requestHistoryError.value = null;
+    requestHistoryError.value = '';
 
     const response = await fetch(
       `${API_URL}/requests/me?offset=0&limit=10`,
@@ -94,7 +94,8 @@ const fetchRequests = async () => {
     requests.value = [...data];
 
   } catch (e: unknown) {
-    console.error('Error fetching requests:', e);
+    const error = e as Error;
+    console.error('Error fetching requests:', error);
     requestHistoryError.value = e.message || 'Failed to load request history. Please try again later.';
   } finally {
     isLoading.value = false;
